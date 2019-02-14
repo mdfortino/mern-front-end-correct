@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-// import Bookmark from './Bookmark'
+import Bookmark from './Bookmark'
 
 class BookmarkList extends Component {
     constructor() {
@@ -23,31 +23,20 @@ class BookmarkList extends Component {
   }
     
       render () {
-          console.log(this.state.bookmarks)
-        const bookmarks = this.state.bookmarks.map((bookmark, index) => {
+          console.log(this.props.bookmarks)
+        let bookmarkList = this.props.bookmarks.map((bookmark, index) => {
           return (
-            <div className= "bookmark">
-                }}
-              />
-            </div>
+            <Bookmark key = {index} />
           )
         })
-    
         return (
-          <div>
-            <h1>Saved Bookmarks</h1>
-            { bookmarks }
+          <div className = "bookmark-list">
+          {bookmarkList}
           </div>
-        )
-      }
+        )  
+      }      
     }
-    render() {
-        return (
-            <div>
-               <h1> bookmark</h1> 
-            </div>
-        );
-    }
-}
+    
+    
 
 export default BookmarkList; 
